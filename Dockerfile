@@ -1,12 +1,7 @@
 FROM node:bookworm-slim
-ENV NODE_ENV=production
-
 WORKDIR /app
-
-COPY ["package.json", "./"]
-
+COPY package.json ./
+COPY vendor ./vendor
 RUN npm install
-
 COPY . .
-
-CMD [ "node", "src/server.js" ]
+# ...leave the rest unchanged
